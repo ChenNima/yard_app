@@ -1,17 +1,15 @@
-<ion-view view-title="Login">
+<ion-view view-title="登录">
   <ion-content class="padding">
     <div class="container">
-    <form name="chatForm" role="form" class="form-horizontal" ng-submit="doLogin()">
-      <div class="form-group">
+    <form name="chatForm" role="form" class="form-horizontal" ng-submit="login()">
         <label class="item item-input">
          <span class="input-label glyphicon glyphicon-user"></span>
-          <input required type="text">
+          <input required type="text" ng-model="user.name">
         </label>
         <label class="item item-input">
           <span class="input-label glyphicon glyphicon-eye-close"></span>
-          <input required type="password">
+          <input required type="password" ng-model="user.pass">
         </label>
-      </div>
       <input class="btn btn-lg btn-primary btn-block" type="submit" value="登录" ng-disabled="chatForm.$invalid">
       <a class="btn btn-lg btn-default btn-block" ng-href="#!/register">注册</a>
     </form>

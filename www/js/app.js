@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic','restangular', 'starter.controllers', 'starter.services','localService'])
 
-  .run(function($ionicPlatform) {
+  .run(function($ionicPlatform,Restangular) {
     $ionicPlatform.ready(function() {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -21,4 +21,6 @@ angular.module('starter', ['ionic','restangular', 'starter.controllers', 'starte
         StatusBar.styleDefault();
       }
     });
+
+    Restangular.setBaseUrl('http://mrchen.pub/');
   });
