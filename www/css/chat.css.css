@@ -4,10 +4,10 @@
     border: 0px solid #F7F7F7;
     padding: 5px 0 5px 5px; }
   .chat-table .other-line {
-    width: 400px;
+    width: 350px;
     text-align: left; }
   .chat-table .chat-line {
-    width: 400px;
+    width: 350px;
     text-align: right; }
 
 .chat-bubble-left {
@@ -15,14 +15,16 @@
   background-color: #a5ff97;
   padding: 6px;
   margin: 0px 0px 0px 11px;
-  border-radius: 8px; }
+  border-radius: 8px;
+  max-width: 280px; }
 
 .chat-bubble-right {
   display: inline-block;
   background-color: #ecefe6;
   padding: 6px;
   margin: 0px 11px 0px 0px;
-  border-radius: 8px; }
+  border-radius: 8px;
+  max-width: 280px; }
 
 .triangle-left {
   margin: 7px 0 0 0;

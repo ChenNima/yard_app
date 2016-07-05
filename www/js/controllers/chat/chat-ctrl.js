@@ -2,7 +2,7 @@
  * Created by CYF on 16/7/5.
  */
 angular.module('starter')
-  .controller('ChatCtrl',function ($scope,Restangular,LocalVariable,socketService) {
+  .controller('ChatCtrl',function ($scope,Restangular,LocalVariable,socketService,DataFormat) {
     var user = LocalVariable.getUser();
 
     $scope.data={};
@@ -18,7 +18,7 @@ angular.module('starter')
         //showNotify(_.last(data).name+": "+_.last(data).content);
       }
       if(!$scope.datas || _.last(data)._id!=_.last($scope.datas)._id){
-        $scope.datas = data;
+        $scope.datas = DataFormat.format(data);
       }
     });
 

@@ -1,5 +1,5 @@
-angular.module('dataFormat', [])
-    .factory('dataFormat',[
+angular.module('DataFormat', [])
+    .factory('DataFormat',[
         function() {
 
             var service = {

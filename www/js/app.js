@@ -5,7 +5,15 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'restangular', 'starter.controllers', 'starter.services', 'localService', 'LocalVariable', 'socketService'])
+angular.module('starter', [
+    'ionic',
+    'restangular',
+    'starter.controllers',
+    'starter.services',
+    'localService',
+    'LocalVariable',
+    'socketService',
+    'DataFormat'])
 
   .run(function ($ionicPlatform, Restangular) {
     $ionicPlatform.ready(function () {
