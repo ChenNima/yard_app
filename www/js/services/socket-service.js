@@ -12,7 +12,7 @@ angular.module('socketService', [])
             if(socket.connected){
                 socket.disconnect();
             }
-            socket = io.connect();
+            socket = io.connect('http://localhost:3000/');
         },
         on: function (eventName, callback) {
             socket.on(eventName, function () {
