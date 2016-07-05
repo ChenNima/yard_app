@@ -3,18 +3,10 @@
  */
 angular.module('starter')
 
-  .controller('DashCtrl', function ($scope,$location,localService) {
-
-    $scope.$on('$ionicView.beforeEnter', function(){
-      $scope.user = localService.getObject('user');
-      if(_.isEmpty($scope.user)){
-        $scope.$emit("login", false);
-        $location.path('/login');
-      }
-    });
+  .controller('DashCtrl', function ($scope,$location,LocalVariable) {
 
     $scope.logout = function (){
-      localService.setObject('user',{});
+      LocalVariable.clearUser();
       $scope.$emit("login", false);
       $location.path('/login');
     }

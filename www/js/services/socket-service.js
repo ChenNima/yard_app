@@ -5,7 +5,8 @@ angular.module('socketService', [])
     .factory('socketService',[
         '$rootScope',
         function ($rootScope) {
-    var socket = io.connect('http://115.28.109.109/');
+    //var socket = io.connect('http://115.28.109.109/');
+          var socket = io.connect('http://localhost:3000/');
     return {
         reconnect : function () {
             if(socket.connected){

@@ -1,20 +1,20 @@
 /**
  * Created by yichen on 6/30/16.
  */
-angular.module('localService',[])
-  .factory('localService',['$window',function($window){
-    return{
+angular.module('localService', [])
+  .factory('localService', ['$window', function ($window) {
+    return {
       //存储单个属性
-      set :function(key,value){
-        $window.localStorage[key]=value;
+      set: function (key, value) {
+        $window.localStorage[key] = value;
       },
       //读取单个属性
-      get:function(key,defaultValue){
-        return  $window.localStorage[key] || defaultValue;
+      get: function (key, defaultValue) {
+        return $window.localStorage[key] || defaultValue;
       },
       //存储对象，以JSON格式存储
-      setObject:function(key,value){
-        $window.localStorage[key]=JSON.stringify(value);
+      setObject: function (key, value) {
+        $window.localStorage[key] = JSON.stringify(value);
       },
       //读取对象
       getObject: function (key) {

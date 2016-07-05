@@ -40,8 +40,8 @@ angular.module('starter')
           url: '/chats',
           views: {
             'tab-chats': {
-              templateUrl: 'templates/tab-chats.html',
-              controller: 'ChatsCtrl'
+              templateUrl: 'js/controllers/chat/chat.html',
+              controller: 'ChatCtrl'
             }
           }
         })

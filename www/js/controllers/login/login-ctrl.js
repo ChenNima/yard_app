@@ -1,7 +1,7 @@
 angular.module('starter')
-  .controller('LoginCtrl', function ($scope, $location,$ionicPopup,$ionicLoading, Restangular, localService) {
+  .controller('LoginCtrl', function ($scope, $location,$ionicPopup,$ionicLoading, Restangular, LocalVariable) {
     $scope.$on('$ionicView.beforeEnter', function(){
-      if(!_.isEmpty(localService.getObject('user'))){
+      if(!_.isEmpty(LocalVariable.getUser())){
         $location.path('/');
       }
     });
@@ -18,12 +18,19 @@ angular.module('starter')
         Restangular.one('login').get($scope.user)
           .then(function (data) {
               $ionicLoading.hide();
-              localService.setObject('user',data);
+              LocalVariable.saveUser(data);
               $scope.$emit("login", true);
               $location.path('/');
           },
           function(err){
             $ionicLoading.hide();
+            if(err.status==-1){
+              $ionicPopup.confirm({
+                title: 'Login Failed',
+                template: '无网络连接'
+              });
+              return
+            }
             $ionicPopup.confirm({
               title: 'Login Failed',
               template: err.data.message
