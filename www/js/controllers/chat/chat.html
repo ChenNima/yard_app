@@ -1,8 +1,5 @@
-<ion-view view-title="陈先森的院子">
-  <div class="bar bar-subheader">
-    <a>{{'当前在线:'+onlineUsers}}</a>
-  </div>
-  <ion-content class="padding">
+<ion-view view-title="{{'当前在线:'+onlineUsers}}">
+  <ion-content class="padding" delegate-handle="mainScroll">
         <table class="chat-table">
           <tr ng-repeat="result in datas">
             <td class="chat-name-left">

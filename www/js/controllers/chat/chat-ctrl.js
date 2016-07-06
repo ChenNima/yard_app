@@ -2,7 +2,7 @@
  * Created by CYF on 16/7/5.
  */
 angular.module('starter')
-  .controller('ChatCtrl',function ($scope,$ionicLoading,Restangular,LocalVariable,socketService,DataFormat) {
+  .controller('ChatCtrl',function ($scope,$ionicLoading,$ionicScrollDelegate,Restangular,LocalVariable,socketService,DataFormat) {
     var user = LocalVariable.getUser();
 
     var sendData;
@@ -27,6 +27,7 @@ angular.module('starter')
       if(!$scope.datas || _.last(data)._id!=_.last($scope.datas)._id){
         $scope.datas = DataFormat.format(data);
       }
+      $ionicScrollDelegate.$getByHandle('mainScroll').scrollBottom();
     });
 
     socketService.on('chat_added',function(data){
