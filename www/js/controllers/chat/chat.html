@@ -4,7 +4,7 @@
       <a>{{'当前在线:'+onlineUsers}}</a>
       <table class="chat-table">
         <tr ng-repeat="result in datas">
-          <td style="color:#00B7FF">
+          <td class="chat-name-left">
             {{data.name==result.name||result.hide?"":(result.name)}}<br>
             {{data.name==result.name||result.hide?"":result.date}}
           </td>
@@ -15,23 +15,20 @@
             </div>
             <div class="triangle-right" ng-if="data.name==result.name"></div>
           </td>
-          <td style="color:#ff8514" ng-show="data.name==result.name">
+          <td class="chat-name-right" ng-show="data.name==result.name">
             {{result.hide?"":result.name}}<br>
             {{result.hide?"":result.date}}
           </td>
         </tr>
       </table>
-      <!--<form name="chatForm" role="form" class="form-horizontal" ng-submit="smsTest()">-->
-        <!--<div class="form-group">-->
-          <!--<div class="input-group chat-input">-->
-            <!--<input class="form-control" required type="text" placeholder="内容" ng-model="data.content">-->
-                 <!--<span class="input-group-btn">-->
-                     <!--<input class="btn btn-primary" type="submit" value="提交" ng-disabled="chatForm.$invalid">-->
-                     <!--<a class="btn btn-default" data-ng-click="history()">历史记录</a>-->
-                 <!--</span>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</form>-->
+      <form name="chatForm" role="form" ng-submit="send()">
+        <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+          <input required type="text" placeholder="内容" ng-model="data.content">
+        </label>
+                     <input class="button button-small button-positive" type="submit" value="提交" ng-disabled="chatForm.$invalid">
+        </div>
+      </form>
     </div>
   </ion-content>
 </ion-view>
