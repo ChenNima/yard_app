@@ -51,4 +51,16 @@
   border-style: solid;
   border-color: transparent transparent transparent #ecefe6; }
 
+.char-bar {
+  position: absolute;
+  bottom: 0;
+  z-index: 5;
+  width: 100%; }
+
+.online-bar {
+  position: absolute;
+  top: 0;
+  z-index: 5;
+  width: 100%; }
+
 /*# sourceMappingURL=chat.css.css.map */

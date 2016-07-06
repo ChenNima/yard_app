@@ -1,7 +1,7 @@
-<ion-view view-title="聊天室">
+<ion-view view-title="{{'当前在线:'+onlineUsers}}">
   <ion-content class="padding">
     <div calss="container">
-      <a>{{'当前在线:'+onlineUsers}}</a>
+      <div>
       <table class="chat-table">
         <tr ng-repeat="result in datas">
           <td class="chat-name-left">
@@ -21,14 +21,19 @@
           </td>
         </tr>
       </table>
+      </div>
+    </div>
+  </ion-content>
+  <ion-footer-bar>
+    <div class="char-bar">
       <form name="chatForm" role="form" ng-submit="send()">
         <div class="item item-input-inset">
-        <label class="item-input-wrapper">
-          <input required type="text" placeholder="内容" ng-model="data.content">
-        </label>
-                     <input class="button button-small button-positive" type="submit" value="提交" ng-disabled="chatForm.$invalid">
+          <label class="item-input-wrapper">
+            <input required type="text" placeholder="内容" ng-model="data.content">
+          </label>
+          <input class="button button-small button-positive" type="submit" value="提交" ng-disabled="chatForm.$invalid">
         </div>
       </form>
     </div>
-  </ion-content>
+  </ion-footer-bar>
 </ion-view>
