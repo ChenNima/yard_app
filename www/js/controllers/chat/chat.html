@@ -1,32 +1,33 @@
-<ion-view view-title="{{'当前在线:'+onlineUsers}}">
+<ion-view view-title="陈先森的院子">
+  <div class="bar bar-subheader">
+    <a>{{'当前在线:'+onlineUsers}}</a>
+  </div>
   <ion-content class="padding">
-    <div calss="container">
-      <div>
-      <table class="chat-table">
-        <tr ng-repeat="result in datas">
-          <td class="chat-name-left">
-            {{data.name==result.name||result.hide?"":(result.name)}}<br>
-            {{data.name==result.name||result.hide?"":result.date}}
-          </td>
-          <td ng-class="{'other-line':data.name!=result.name,'chat-line':data.name==result.name}">
-            <div class="triangle-left" ng-if="data.name!==result.name"></div>
-            <div ng-class="{'chat-bubble-left':data.name!=result.name,'chat-bubble-right':data.name==result.name}">
-              {{"&nbsp;&nbsp;"+result.content+"&nbsp;&nbsp;"}}
-            </div>
-            <div class="triangle-right" ng-if="data.name==result.name"></div>
-          </td>
-          <td class="chat-name-right" ng-show="data.name==result.name">
-            {{result.hide?"":result.name}}<br>
-            {{result.hide?"":result.date}}
-          </td>
-        </tr>
-      </table>
-      </div>
+        <table class="chat-table">
+          <tr ng-repeat="result in datas">
+            <td class="chat-name-left">
+              {{data.name==result.name||result.hide?"":(result.name)}}<br>
+              {{data.name==result.name||result.hide?"":result.date}}
+            </td>
+            <td ng-class="{'other-line':data.name!=result.name,'chat-line':data.name==result.name}">
+              <div class="triangle-left" ng-if="data.name!==result.name"></div>
+              <div ng-class="{'chat-bubble-left':data.name!=result.name,'chat-bubble-right':data.name==result.name}">
+                {{"&nbsp;&nbsp;"+result.content+"&nbsp;&nbsp;"}}
+              </div>
+              <div class="triangle-right" ng-if="data.name==result.name"></div>
+            </td>
+            <td class="chat-name-right" ng-show="data.name==result.name">
+              {{result.hide?"":result.name}}<br>
+              {{result.hide?"":result.date}}
+            </td>
+          </tr>
+        </table>
     </div>
   </ion-content>
   <ion-footer-bar>
     <div class="char-bar">
       <form name="chatForm" role="form" ng-submit="send()">
+
         <div class="item item-input-inset">
           <label class="item-input-wrapper">
             <input required type="text" placeholder="内容" ng-model="data.content">
