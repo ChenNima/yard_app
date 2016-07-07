@@ -2,12 +2,12 @@
  * Created by CYF on 16/7/5.
  */
 angular.module('starter')
-  .controller('ChatCtrl',function ($scope,$ionicLoading,$ionicScrollDelegate,Restangular,LocalVariable,socketService,DataFormat) {
+  .controller('ChatCtrl', function ($scope, $ionicLoading, $ionicScrollDelegate, Restangular, LocalVariable, socketService, DataFormat) {
     var user = LocalVariable.getUser();
 
     var sendData;
 
-    $scope.data={};
+    $scope.data = {};
 
     $scope.data.name = user.nickName;
 
@@ -15,38 +15,44 @@ angular.module('starter')
       template: 'Loading...'
     });
 
+
     socketService.reconnect();
 
-    socketService.emit('login',{userName:user.nickName});
+    socketService.emit('login', {userName: user.nickName});
 
-    socketService.on('chats',function(data){
+    socketService.on('chats', function (data) {
       $ionicLoading.hide();
-      if ($scope.datas &&  _.last(data)._id!=_.last($scope.datas)._id && _.last(data).name != $scope.data.name){
+      if ($scope.datas && _.last(data)._id != _.last($scope.datas)._id && _.last(data).name != $scope.data.name) {
         //showNotify(_.last(data).name+": "+_.last(data).content);
+        window.plugin.notification.local.add({
+          id: window.parseInt(Math.random() * 10000),
+          message: _.last(data).name+": "+_.last(data).content,
+          json: JSON.stringify({message: 'Hello, now test notification!'})
+        });
       }
-      if(!$scope.datas || _.last(data)._id!=_.last($scope.datas)._id){
+      if (!$scope.datas || _.last(data)._id != _.last($scope.datas)._id) {
         $scope.datas = DataFormat.format(data);
       }
       $ionicScrollDelegate.$getByHandle('mainScroll').scrollBottom();
     });
 
-    socketService.on('chat_added',function(data){
+    socketService.on('chat_added', function (data) {
       console.log('posted');
       //$scope.toSend.splice(0,1);
     });
 
-    socketService.on('user_login_change',function(data){
+    socketService.on('user_login_change', function (data) {
       $scope.onlineUsers = data;
     });
 
-    $scope.send = function(){
+    $scope.send = function () {
       var myDate = new Date();
       var time = myDate.getHours() + ":" + myDate.getMinutes() + ":" + myDate.getSeconds();
       $scope.data.date = time;
       sendData = deepCopy($scope.data);
       $scope.data.content = "";
-      socketService.emit('add_new',{
-        data : sendData
+      socketService.emit('add_new', {
+        data: sendData
       })
     };
 
