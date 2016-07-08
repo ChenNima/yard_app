@@ -24,11 +24,15 @@ angular.module('starter')
       $ionicLoading.hide();
       if ($scope.datas && _.last(data)._id != _.last($scope.datas)._id && _.last(data).name != $scope.data.name) {
         //showNotify(_.last(data).name+": "+_.last(data).content);
-        window.plugin.notification.local.add({
-          id: window.parseInt(Math.random() * 10000),
-          message: _.last(data).name+": "+_.last(data).content,
-          json: JSON.stringify({message: 'Hello, now test notification!'})
-        });
+        try{
+          window.plugin.notification.local.add({
+            id: window.parseInt(Math.random() * 10000),
+            message: _.last(data).name+": "+_.last(data).content,
+            json: JSON.stringify({message: 'Hello, now test notification!'})
+          });
+        }catch (err){
+
+        }
       }
       if (!$scope.datas || _.last(data)._id != _.last($scope.datas)._id) {
         $scope.datas = DataFormat.format(data);

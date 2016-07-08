@@ -30,5 +30,5 @@ angular.module('starter', [
       }
     });
 
-    Restangular.setBaseUrl('http://115.28.109.109:3000/');
+    Restangular.setBaseUrl('http://www.mrchen.pub/');
   });

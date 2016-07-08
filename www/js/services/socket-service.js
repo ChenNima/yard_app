@@ -5,14 +5,14 @@ angular.module('socketService', [])
     .factory('socketService',[
         '$rootScope',
         function ($rootScope) {
-    var socket = io.connect('http://115.28.109.109:3000/');
+    var socket = io.connect('http://www.mrchen.pub/');
     //      var socket = io.connect('http://localhost:3000/');
     return {
         reconnect : function () {
             if(socket.connected){
                 socket.disconnect();
             }
-            socket = io.connect('http://115.28.109.109:3000/');
+            socket = io.connect('http://www.mrchen.pub/');
         },
         on: function (eventName, callback) {
             socket.on(eventName, function () {
