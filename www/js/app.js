@@ -13,7 +13,8 @@ angular.module('starter', [
     'localService',
     'LocalVariable',
     'socketService',
-    'DataFormat'])
+    'DataFormat',
+    'NetworkSpeed'])
 
   .run(function ($ionicPlatform, Restangular) {
     $ionicPlatform.ready(function () {
