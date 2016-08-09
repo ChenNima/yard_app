@@ -7,7 +7,7 @@ angular.module('NetworkSpeed', [])
 
       function isConnected() {
         var xhr = new XMLHttpRequest();
-        var file = "http://api.androidhive.info/music/images/adele.png";
+        var file = "https://www.baidu.com/img/baidu_jgylogo3.gif";
         var r = Math.round(Math.random() * 10000);
         xhr.open('HEAD', file + "?subins=" + r, false);
         try {
@@ -35,8 +35,8 @@ angular.module('NetworkSpeed', [])
 
       return {
         getSpeed: function (callback) {
-          var downloadSize = 244736;
-          var imageAddr = "http://farm6.static.flickr.com/5035/5802797131_a729dac808_b.jpg" + "?n=" + Math.random();
+          var downloadSize = 97615;
+          var imageAddr = "http://img.pconline.com.cn/images/upload/upc/tx/wallpaper/1408/07/c0/37179063_1407421362265_800x600.jpg" + "?n=" + Math.random();
           var startTime, endTime = 0;
           var download = new Image();
 
