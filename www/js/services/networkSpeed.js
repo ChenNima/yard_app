@@ -30,6 +30,8 @@ angular.module('NetworkSpeed', [])
           var speedKbps = (speedBps / 1024).toFixed(2);
           var finalSpeed = (speedKbps / 8);
           callback(finalSpeed);
+        }else{
+          callback('没有连接');
         }
       }
 
