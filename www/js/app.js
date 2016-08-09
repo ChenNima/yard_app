@@ -14,7 +14,8 @@ angular.module('starter', [
     'LocalVariable',
     'socketService',
     'DataFormat',
-    'NetworkSpeed'])
+    'NetworkSpeed',
+    'ngCordova'])
 
   .run(function ($ionicPlatform, Restangular) {
     $ionicPlatform.ready(function () {
