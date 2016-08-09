@@ -32,5 +32,5 @@ angular.module('starter', [
       }
     });
 
-    Restangular.setBaseUrl('http://www.mrchen.pub/');
+    Restangular.setBaseUrl('https://www.mrchen.pub/');
   });
